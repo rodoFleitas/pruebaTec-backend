@@ -10,7 +10,6 @@ server.get("/", authenticateToken, async (req, res) => {
 
     res.status(200).json(notes);
   } catch (error) {
-    console.log(error);
     res.status(500).json({ message: "Error al obtener las notas" });
   }
 });
@@ -28,7 +27,6 @@ server.post("/", authenticateToken, async (req, res) => {
 
     res.status(200).json(newNote);
   } catch (error) {
-    console.log(error);
     res.status(500).json({ message: "Error al cargar la nota" });
   }
 });
@@ -44,7 +42,6 @@ server.put("/:id", authenticateToken, async (req, res) => {
 
     res.status(200).json(aux);
   } catch (error) {
-    console.log(error);
     res.status(500).json({ message: "Error al editar la nota" });
   }
 });
@@ -57,7 +54,6 @@ server.delete("/:id", authenticateToken, async (req, res) => {
 
     res.status(200).json({ message: "Nota eliminada correctamente" });
   } catch (error) {
-    console.log(error);
     res.status(500).json({ message: "Error al editar la nota" });
   }
 });
