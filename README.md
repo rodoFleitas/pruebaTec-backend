@@ -1,4 +1,4 @@
-# Prueba Tecnica
+# Prueba Tecnica - Frontend
 
 ## 🧞 Commands
 
