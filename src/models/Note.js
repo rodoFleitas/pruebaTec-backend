@@ -7,6 +7,11 @@ const noteSchema = new Schema(
       ref: "User",
       required: true,
     },
+    title: {
+      type: String,
+      required: false,
+      default: "",
+    },
     note: {
       type: String,
       required: true,

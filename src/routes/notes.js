@@ -17,9 +17,13 @@ server.get("/", authenticateToken, async (req, res) => {
 
 server.post("/", authenticateToken, async (req, res) => {
   try {
-    let { note } = req.body;
+    let { title, note } = req.body;
 
-    const newNote = new Note({ creator: req.user._id, note: note });
+    const newNote = new Note({
+      creator: req.user._id,
+      title: title,
+      note: note,
+    });
     await newNote.save();
 
     res.status(200).json(newNote);
@@ -33,9 +37,9 @@ server.put("/:id", authenticateToken, async (req, res) => {
   const { id } = req.params;
 
   try {
-    let { note } = req.body;
+    let { title, note } = req.body;
 
-    await Note.findByIdAndUpdate(id, { note });
+    await Note.findByIdAndUpdate(id, { title, note });
     let aux = await Note.findById(id);
 
     res.status(200).json(aux);
